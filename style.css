@@ -1,0 +1,153 @@
+/* =========================================================
+   CHARTE GRAPHIQUE – Hayat Elhajjam
+   Palette « mint / vert-sapin » un peu kitsch mais punchy 🎉
+   ---------------------------------------------------------
+   --mint-very-light : fond de page (vert d’eau ultra clair)
+   --mint-light      : surbrillance & puces
+   --mint            : éléments interactifs (boutons, liens)
+   --mint-dark       : titres & bordures
+   --accent          : sous-titres / job titles
+   ========================================================= */
+:root{
+  --mint-very-light:#e8fbf7;
+  --mint-light:#c8f1e8;
+  --mint:#8ee0d1;
+  --mint-dark:#0c5446;
+  --accent:#298e73;
+}
+
+*{box-sizing:border-box;}
+
+body{
+  margin:0;
+  font-family:'Outfit',sans-serif;
+  background:linear-gradient(135deg,var(--mint-very-light) 0%,#ffffff 100%);
+  color:var(--mint-dark);
+  font-size:16px;
+}
+
+/* ---------- WRAPPER ---------- */
+.container{
+  max-width:900px;
+  margin:40px auto;
+  padding:2rem;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,.06);
+}
+
+/* ---------- HEADER ---------- */
+header{
+  text-align:center;
+  margin-bottom:2.5rem;
+}
+
+h1{
+  font-size:2.8rem;
+  margin:0;
+  color:var(--mint-dark);
+  text-shadow:1px 1px 0 var(--mint-light);
+}
+
+.subtitle{
+  font-weight:300;
+  font-size:1.35rem;
+  color:var(--accent);
+}
+
+/* liens de contact sous forme de pill-buttons */
+.contact-links{
+  margin-top:1rem;
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+}
+
+.contact-links a{
+  padding:8px 14px;
+  background:var(--mint-light);
+  color:var(--mint-dark);
+  text-decoration:none;
+  border-radius:30px;
+  border:1px solid var(--mint);
+  transition:.25s;
+  font-size:.95rem;
+}
+
+.contact-links a:hover{
+  background:var(--mint);
+  color:#fff;
+  transform:translateY(-2px);
+}
+
+/* ---------- SECTIONS ---------- */
+section{margin-bottom:2rem;}
+
+h2{
+  margin:0 0 .8rem 0;
+  padding-left:12px;
+  border-left:6px solid var(--mint-dark);
+  color:var(--mint-dark);
+  font-size:1.55rem;
+}
+
+h3{
+  color:var(--accent);
+  margin:.2rem 0 .3rem;
+  font-size:1.1rem;
+}
+
+ul{padding-left:1.2rem; margin:.2rem 0;}
+li{margin-bottom:.3rem;}
+
+/* Job blocks pour plus de lisibilité */
+.job{margin-bottom:1.2rem;}
+
+/* ---------- FOOTER ---------- */
+footer{
+  text-align:center;
+  font-size:.9rem;
+  padding-top:1rem;
+  border-top:1px solid var(--mint-light);
+  color:#555;
+}
+a.contact-links[href$=".pdf"] {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 10px 18px;
+  background: var(--mint);
+  color: #fff;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a.contact-links[href$=".pdf"]:hover {
+  background: var(--mint-dark);
+  transform: scale(1.03);
+}
+
+
+/* ---------- ANIMATION FADE-IN ---------- */
+.fade-in{
+  opacity:0;
+  transform:translateY(20px);
+}
+
+.fade-in.visible{                /* classe ajoutée via JS */
+  animation:fadeIn .8s ease forwards;
+}
+
+@keyframes fadeIn{
+  to{opacity:1; transform:none;}
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media(max-width:600px){
+  body{font-size:15px;}
+  h1{font-size:2.2rem;}
+  .contact-links{flex-direction:column; gap:6px;}
+}
+@media (prefers-color-scheme: dark){ /* tes overrides */ }
